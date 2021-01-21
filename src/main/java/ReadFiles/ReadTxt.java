@@ -1,45 +1,76 @@
 package ReadFiles;
 
+import MyExeptions.ArrayException;
+
 import java.io.*;
 import java.util.Scanner;
 
-/*
-    TODO
-    Сделать собственные классы исключений
-    Сделать парсер проверяющий правильные данные
- */
+
 public class ReadTxt {
     public static int[] createArrayFromFile(String path) throws IOException {
         File file = new File(path);
         Scanner scanner = new Scanner(file);
 
-        String size = scanner.next();
+        String inputData = scanner.nextLine();
+        while (!ParseInputData.onlyIntCheck(inputData)) {
+            inputData = scanner.nextLine();
+        }
 
-        int defaultSize;
+        String[] param = inputData.split(" ");
+
         int[] array;
-
         try {
-            defaultSize = Integer.parseInt(size);
-            array = new int[defaultSize];
-        } catch (NumberFormatException e) {
+            array = createNewIntArray(param);
+        } catch (ArrayException e) {
+            e.printStackTrace();
             return new int[0];
         }
 
         try {
-            int i = 0;
-            while (scanner.hasNext()) {
-                String value = scanner.next();
-                array[i] = Integer.parseInt(value);
-                i++;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Wrong input data");
+            array = fillIntArray(param, array);
+        } catch (ArrayException e) {
             e.printStackTrace();
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Wrong array size");
-            e.printStackTrace();
+            return new int[0];
         }
 
+        return array;
+    }
+
+    public static int[] createNewIntArray(String[] param) throws ArrayException {
+        int defaultSize;
+        int[] array;
+
+        try {
+            if (param.length < 2) {
+                throw new ArrayException();
+            }
+
+            defaultSize = Integer.parseInt(param[0]);
+            array = new int[defaultSize];
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return new int[0];
+        }
+
+        return array;
+    }
+
+    public static int[] fillIntArray(String[] param, int[] array) throws ArrayException {
+        try {
+            //example
+            //param = {2, -4, 5}
+            //array = {-4, 5}
+            if (param.length - 1 != array.length) {
+                throw new ArrayException();
+            }
+
+            for (int i = 0; i < array.length; i++) {
+                array[i] = Integer.parseInt(param[i + 1]);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return new int[0];
+        }
 
         return array;
     }
