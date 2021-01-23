@@ -16,8 +16,7 @@ public class TestCalculationCount {
     void test_2() {
         int[] array = new int[0];
 
-        Assert.assertEquals(CalculateCountOfDiffNumbers.countOfNegativeNumbers(array),
-                null, "Wrong answer!");
+        Assert.assertNull(CalculateCountOfDiffNumbers.countOfNegativeNumbers(array), "Wrong answer!");
     }
 
     @Test
@@ -40,8 +39,7 @@ public class TestCalculationCount {
     void test_5() {
         int[] array = new int[0];
 
-        Assert.assertEquals(CalculateCountOfDiffNumbers.countOfPositiveNumbers(array),
-                null, "Wrong answer!");
+        Assert.assertNull(CalculateCountOfDiffNumbers.countOfPositiveNumbers(array), "Wrong answer!");
     }
 
     @Test

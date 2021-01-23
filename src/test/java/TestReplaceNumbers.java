@@ -16,7 +16,6 @@ public class TestReplaceNumbers {
     void test_2() {
         int[] array = new int[0];
 
-        Assert.assertEquals(ReplaceNumbers.replaceNumber(array, -2, 4), null,
-                "Wrong answer!");
+        Assert.assertNull(ReplaceNumbers.replaceNumber(array, -2, 4), "Wrong answer!");
     }
 }

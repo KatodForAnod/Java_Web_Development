@@ -15,7 +15,7 @@ public class TestFindMinMax {
     void test_2() {
         int[] array = new int[0];
 
-        Assert.assertEquals(FindMinMax.findMin(array), null, "Wrong answer!");
+        Assert.assertNull(FindMinMax.findMin(array), "Wrong answer!");
     }
 
     @Test
@@ -30,6 +30,6 @@ public class TestFindMinMax {
     void test_4() {
         int[] array = new int[0];
 
-        Assert.assertEquals(FindMinMax.findMax(array), null, "Wrong answer!");
+        Assert.assertNull(FindMinMax.findMax(array), "Wrong answer!");
     }
 }

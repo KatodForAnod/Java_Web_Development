@@ -23,6 +23,6 @@ public class TestInsertSort {
     void test_3() {
         int[] array = new int[0];
 
-        Assert.assertEquals(InsertSort.sortMinToMax(array), null, "Wrong!");
+        Assert.assertNull(InsertSort.sortMinToMax(array), "Wrong!");
     }
 }

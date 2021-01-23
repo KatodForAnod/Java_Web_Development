@@ -6,12 +6,12 @@ public class TestParseInputData {
     @Test
     public void test_1() {
         String input = "1z 2 4 55";
-        Assert.assertEquals(ParseInputData.onlyIntCheck(input), false, "Wrong!");
+        Assert.assertFalse(ParseInputData.onlyIntCheck(input), "Wrong!");
     }
 
     @Test
     public void test_2() {
         String input = "1 2 4 55";
-        Assert.assertEquals(ParseInputData.onlyIntCheck(input), true, "Wrong!");
+        Assert.assertTrue(ParseInputData.onlyIntCheck(input), "Wrong!");
     }
 }

@@ -17,6 +17,6 @@ public class TestCalculateAverage {
     void test_2() {
         int[] array = new int[0];
 
-        Assert.assertEquals(CalculateAverage.calculateAverage(array), null, "Wrong answer!");
+        Assert.assertNull(CalculateAverage.calculateAverage(array), "Wrong answer!");
     }
 }

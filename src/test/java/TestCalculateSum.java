@@ -16,6 +16,6 @@ public class TestCalculateSum {
         int[] array = new int[0];
 
         Integer sum = CalculateSum.calculateSum(array);
-        Assert.assertEquals(sum, null, "Wrong answer!");
+        Assert.assertNull(sum, "Wrong answer!");
     }
 }

@@ -25,7 +25,7 @@ public class TestQuickSort {
     void test_3() {
         int[] array = new int[0];
 
-        Assert.assertEquals(QuickSort.sortMinToMax(array, 0,
-                array.length - 1), null, "Wrong!");
+        Assert.assertNull(QuickSort.sortMinToMax(array, 0,
+                array.length - 1), "Wrong!");
     }
 }
