@@ -1,4 +1,4 @@
-package Sorts;
+package SortArray;
 
 public class BubbleSort {
     public static int[] sortMinToMax(int[] array) {

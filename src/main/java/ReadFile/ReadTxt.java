@@ -1,6 +1,6 @@
-package ReadFiles;
+package ReadFile;
 
-import MyExeptions.ArrayException;
+import NewExeption.ArrayException;
 
 import java.io.*;
 import java.util.Scanner;

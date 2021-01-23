@@ -1,5 +1,5 @@
 
-import Sorts.BubbleSort;
+import SortArray.BubbleSort;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

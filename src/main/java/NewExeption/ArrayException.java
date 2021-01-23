@@ -1,4 +1,4 @@
-package MyExeptions;
+package NewExeption;
 
 public class ArrayException extends Exception {
     public String toString() {

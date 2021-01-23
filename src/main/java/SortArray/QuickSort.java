@@ -1,4 +1,4 @@
-package Sorts;
+package SortArray;
 
 public class QuickSort {
     public static int[] sortMinToMax(int[] source, int leftBorder, int rightBorder) {

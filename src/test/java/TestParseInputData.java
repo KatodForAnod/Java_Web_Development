@@ -1,4 +1,4 @@
-import ReadFiles.ParseInputData;
+import ReadFile.ParseInputData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

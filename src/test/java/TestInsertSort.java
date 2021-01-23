@@ -1,4 +1,4 @@
-import Sorts.InsertSort;
+import SortArray.InsertSort;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
