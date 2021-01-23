@@ -1,3 +1,5 @@
+package Action;
+
 import Action.FindMinMax;
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -1,3 +1,5 @@
+package Action;
+
 import Action.ReplaceNumbers;
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -1,3 +1,5 @@
+package ReadFile;
+
 import NewExeption.ArrayException;
 import ReadFile.ReadTxt;
 import org.testng.Assert;
