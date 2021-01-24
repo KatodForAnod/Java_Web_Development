@@ -1,7 +1,7 @@
 package SortArray;
 
 public class QuickSort {
-    public static int[] sortMinToMax(int[] source, int leftBorder, int rightBorder) {
+    public int[] sortMinToMax(int[] source, int leftBorder, int rightBorder) {
         if (source.length < 2) {
             if (source.length == 0) {
                 return null;

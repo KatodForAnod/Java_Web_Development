@@ -1,7 +1,7 @@
 package Action;
 
 public class CalculateAverage {
-    public static Double calculateAverage(int[] array) {
+    public Double calculateAverage(int[] array) {
         if (array.length < 1) {
             return null;
         }

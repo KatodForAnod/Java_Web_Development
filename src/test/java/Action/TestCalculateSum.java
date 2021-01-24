@@ -4,11 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestCalculateSum {
+    private CalculateSum calculateSum = new CalculateSum();
+
     @Test
     void test_1() {
         int[] array = {1, 2, 3};
 
-        Integer sum = CalculateSum.calculateSum(array);
+        Integer sum = calculateSum.calculateSum(array);
         Assert.assertEquals(sum, (Integer) 6, "Wrong answer!");
     }
 
@@ -16,7 +18,7 @@ public class TestCalculateSum {
     void test_2() {
         int[] array = new int[0];
 
-        Integer sum = CalculateSum.calculateSum(array);
+        Integer sum = calculateSum.calculateSum(array);
         Assert.assertNull(sum, "Wrong answer!");
     }
 }

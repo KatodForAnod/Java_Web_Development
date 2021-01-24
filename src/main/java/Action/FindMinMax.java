@@ -1,7 +1,7 @@
 package Action;
 
 public class FindMinMax {
-    public static Integer findMin(int[] array) {
+    public Integer findMin(int[] array) {
         if (array.length < 1) {
             return null;
         }
@@ -16,7 +16,7 @@ public class FindMinMax {
         return min;
     }
 
-    public static Integer findMax(int[] array) {
+    public Integer findMax(int[] array) {
         if (array.length < 1) {
             return null;
         }

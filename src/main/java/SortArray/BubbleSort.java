@@ -1,7 +1,7 @@
 package SortArray;
 
 public class BubbleSort {
-    public static int[] sortMinToMax(int[] array) {
+    public int[] sortMinToMax(int[] array) {
         if (array.length < 2) {
             if (array.length == 0) {
                 return null;

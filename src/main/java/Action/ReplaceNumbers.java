@@ -1,7 +1,7 @@
 package Action;
 
 public class ReplaceNumbers {
-    public static int[] replaceNumber(int[] array, int prevSi, int newSi) {
+    public int[] replaceNumber(int[] array, int prevSi, int newSi) {
         if (array.length < 1) {
             return null;
         }

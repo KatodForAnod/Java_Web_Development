@@ -1,7 +1,7 @@
 package Action;
 
 public class CalculateCountOfDiffNumbers {
-    public static Integer countOfPositiveNumbers(int[] array) {
+    public Integer countOfPositiveNumbers(int[] array) {
         if (array.length < 1) {
             return null;
         }
@@ -16,7 +16,7 @@ public class CalculateCountOfDiffNumbers {
         return count;
     }
 
-    public static Integer countOfNegativeNumbers(int[] array) {
+    public Integer countOfNegativeNumbers(int[] array) {
         if (array.length < 1) {
             return null;
         }

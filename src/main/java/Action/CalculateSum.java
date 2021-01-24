@@ -1,7 +1,7 @@
 package Action;
 
 public class CalculateSum {
-    public static Integer calculateSum(int[] array) {
+    public Integer calculateSum(int[] array) {
         if (array.length < 1) {
             return null;
         }
