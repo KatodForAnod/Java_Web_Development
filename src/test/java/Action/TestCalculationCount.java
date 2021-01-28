@@ -52,4 +52,36 @@ public class TestCalculationCount {
         Integer count = calculateCountOfDiffNumbers.countOfPositiveNumbers(array);
         Assert.assertEquals(count, (Integer) 0, "Wrong answer!");
     }
+
+    @Test
+    void test_7() {
+        int[] array = {1, -2, 3};
+
+        Integer count = calculateCountOfDiffNumbers.countOfNegativeNumbersUseIntStream(array);
+        Assert.assertEquals(count, (Integer) 1, "Wrong answer!");
+
+    }
+
+    @Test
+    void test_8() {
+        int[] array = new int[0];
+
+        Assert.assertNull(calculateCountOfDiffNumbers.countOfNegativeNumbersUseIntStream(array), "Wrong answer!");
+    }
+
+    @Test
+    void test_9() {
+        int[] array = {1, -2, 3};
+
+        Integer count = calculateCountOfDiffNumbers.countOfPositiveNumbersUseIntStream(array);
+        Assert.assertEquals(count, (Integer) 2, "Wrong answer!");
+
+    }
+
+    @Test
+    void test_10() {
+        int[] array = new int[0];
+
+        Assert.assertNull(calculateCountOfDiffNumbers.countOfPositiveNumbersUseIntStream(array), "Wrong answer!");
+    }
 }

@@ -35,4 +35,34 @@ public class TestFindMinMax {
 
         Assert.assertNull(findMinMax.findMax(array), "Wrong answer!");
     }
+
+    @Test
+    void test_5() {
+        int[] array = {1, -2, 3};
+
+        Integer min = findMinMax.findMinUseIntStream(array);
+        Assert.assertEquals(min, (Integer) (-2), "Wrong answer!");
+    }
+
+    @Test
+    void test_6() {
+        int[] array = new int[0];
+
+        Assert.assertNull(findMinMax.findMinUseIntStream(array), "Wrong answer!");
+    }
+
+    @Test
+    void test_7() {
+        int[] array = {1, -2, 3};
+
+        Integer max = findMinMax.findMaxUseIntStream(array);
+        Assert.assertEquals(max, (Integer) 3, "Wrong answer!");
+    }
+
+    @Test
+    void test_8() {
+        int[] array = new int[0];
+
+        Assert.assertNull(findMinMax.findMaxUseIntStream(array), "Wrong answer!");
+    }
 }
