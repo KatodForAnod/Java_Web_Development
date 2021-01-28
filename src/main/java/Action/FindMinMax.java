@@ -2,6 +2,8 @@ package Action;
 
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
+
 public class FindMinMax {
     private static final Logger logger = Logger.getLogger(FindMinMax.class);
 
@@ -37,5 +39,25 @@ public class FindMinMax {
         }
 
         return max;
+    }
+
+    public Integer findMinUseIntStream(int[] array) {
+        logger.info("started method findMinUseIntStream");
+        if (array.length < 1) {
+            logger.error("wrong size of mass");
+            return null;
+        }
+
+        return Arrays.stream(array).min().getAsInt();
+    }
+
+    public Integer findMaxUseIntStream(int[] array) {
+        logger.info("started method findMaxUseIntStream");
+        if (array.length < 1) {
+            logger.error("wrong size of mass");
+            return null;
+        }
+
+        return Arrays.stream(array).max().getAsInt();
     }
 }

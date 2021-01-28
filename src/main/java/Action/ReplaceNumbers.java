@@ -2,6 +2,8 @@ package Action;
 
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
+
 public class ReplaceNumbers {
     private static final Logger logger = Logger.getLogger(ReplaceNumbers.class);
 
@@ -19,5 +21,21 @@ public class ReplaceNumbers {
         }
 
         return array;
+    }
+
+    public int[] replaceNumberUseIntStream(int[] array, int prevSi, int newSi) {
+        logger.info("started method replaceNumberUseIntStream");
+        if (array.length < 1) {
+            logger.error("wrong size of mass");
+            return null;
+        }
+        
+        return Arrays.stream(array).map(x -> {
+            if (x == prevSi) {
+                return newSi;
+            } else {
+                return x;
+            }
+        }).toArray();
     }
 }

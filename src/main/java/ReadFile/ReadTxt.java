@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class ReadTxt {
     private static final Logger logger = Logger.getLogger(ReadTxt.class);
 
+    //TODO rebuild function, remove IOException
     public static int[] createArrayFromFile(String path) throws IOException {
         logger.info("started method createArrayFromFile");
 
