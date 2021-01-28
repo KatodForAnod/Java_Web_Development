@@ -1,9 +1,16 @@
 package SortArray;
 
+import org.apache.log4j.Logger;
+
 public class QuickSort {
+    private static final Logger logger = Logger.getLogger(QuickSort.class);
+
     public int[] sortMinToMax(int[] source, int leftBorder, int rightBorder) {
+        logger.info("started method sortMinToMax");
+
         if (source.length < 2) {
             if (source.length == 0) {
+                logger.error("wrong size of mass");
                 return null;
             }
 

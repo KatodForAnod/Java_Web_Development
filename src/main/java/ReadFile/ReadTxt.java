@@ -1,13 +1,18 @@
 package ReadFile;
 
 import NewExeption.ArrayException;
+import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.Scanner;
 
 
 public class ReadTxt {
+    private static final Logger logger = Logger.getLogger(ReadTxt.class);
+
     public static int[] createArrayFromFile(String path) throws IOException {
+        logger.info("started method createArrayFromFile");
+
         File file = new File(path);
         Scanner scanner = new Scanner(file);
 
@@ -22,6 +27,7 @@ public class ReadTxt {
         try {
             array = createNewIntArray(param);
         } catch (ArrayException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new int[0];
         }
@@ -29,6 +35,7 @@ public class ReadTxt {
         try {
             array = fillIntArray(param, array);
         } catch (ArrayException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new int[0];
         }
@@ -37,6 +44,8 @@ public class ReadTxt {
     }
 
     public static int[] createNewIntArray(String[] param) throws ArrayException {
+        logger.info("started method createNewIntArray");
+
         int defaultSize;
         int[] array;
 
@@ -48,6 +57,7 @@ public class ReadTxt {
             defaultSize = Integer.parseInt(param[0]);
             array = new int[defaultSize];
         } catch (NumberFormatException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new int[0];
         }
@@ -56,6 +66,7 @@ public class ReadTxt {
     }
 
     public static int[] fillIntArray(String[] param, int[] array) throws ArrayException {
+        logger.info("started method fillIntArray");
         try {
             //example
             //param = {2, -4, 5}
@@ -68,6 +79,7 @@ public class ReadTxt {
                 array[i] = Integer.parseInt(param[i + 1]);
             }
         } catch (NumberFormatException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new int[0];
         }
