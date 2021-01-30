@@ -11,11 +11,18 @@ public class ReadTxt {
     private static final Logger logger = Logger.getLogger(ReadTxt.class);
 
     //TODO rebuild function, remove IOException
-    public static int[] createArrayFromFile(String path) throws IOException {
+    public static int[] createArrayFromFile(String path) {
         logger.info("started method createArrayFromFile");
+        Scanner scanner;
 
-        File file = new File(path);
-        Scanner scanner = new Scanner(file);
+        try {
+            File file = new File(path);
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            logger.error(e.getMessage());
+            e.printStackTrace();
+            return new int[0];
+        }
 
         String inputData = scanner.nextLine();
         while (!ParseInputData.onlyIntCheck(inputData)) {

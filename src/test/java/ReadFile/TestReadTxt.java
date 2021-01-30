@@ -11,13 +11,11 @@ public class TestReadTxt {
     public void test_1() {
         int[] arrayNew = {3, -1, 4, 2};
 
-        try {
-            Assert.assertEquals(
-                    ReadTxt.createArrayFromFile("src/main/resources/ArrayProp.txt"),
-                    arrayNew, "Wrong!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        Assert.assertEquals(
+                ReadTxt.createArrayFromFile("src/main/resources/ArrayProp.txt"),
+                arrayNew, "Wrong!");
+
     }
 
     @Test
