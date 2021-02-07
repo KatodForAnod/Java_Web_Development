@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gemsSchema.xsd">
+    <common-gem id="" lang="EN">
+        <name>dfd</name>
+        <origin>r</origin>
+        <date>2000-11-11T12:30:40</date>
+        <color>red</color>
+        <weightGrm>2</weightGrm>
+    </common-gem>
+    <diamond-gem id="" lang="EN">
+        <name>dfg</name>
+        <origin>s</origin>
+        <date>2000-11-11T12:30:40</date>
+        <color>red</color>
+        <weightGrm>23</weightGrm>
+        <preciousness>preciousness</preciousness>
+        <carats>23</carats>
+        <transparency>4</transparency>
+    </diamond-gem>
+
+</gems>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
