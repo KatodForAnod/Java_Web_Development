@@ -1,82 +1,71 @@
-<?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="gems">
-        <xs:complexType>
-            <xs:sequence>
-
-
-                <xs:element name="common-gem" type="common" maxOccurs="unbounded"/>
-                <xs:element name="diamond-gem" type="diamond" maxOccurs="unbounded"/>
-
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-
-    <xs:complexType name="common">
-        <xs:sequence>
-
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="origin" type="xs:string"/>
-            <xs:element name="date" type="xs:dateTime"/>
-
-            <xs:element name="color">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="red"/>
-                        <xs:enumeration value="green"/>
-                        <xs:enumeration value="yellow"/>
-                        <xs:enumeration value="blue"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-
-            <xs:element name="weightGrm">
-                <xs:simpleType>
-                    <xs:restriction base="xs:double">
-                        <xs:minInclusive value="0"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-
-
-        </xs:sequence>
-        <xs:attribute name="id" use="required"/>
-        <xs:attribute name="lang" use="required" default="EN"/>
-    </xs:complexType>
-    <xs:complexType name="diamond">
-        <xs:complexContent>
-            <xs:extension base="common">
-
-                <xs:sequence>
-                    <xs:element name="preciousness">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:enumeration value="preciousness"/>
-                                <xs:enumeration value="semiprecious"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-
-                    <xs:element name="carats" minOccurs="0">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:double">
-                                <xs:minInclusive value="0"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-
-                    <xs:element name="transparency">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:integer">
-                                <xs:maxInclusive value="100"/>
-                                <xs:minInclusive value="0"/>
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
-                </xs:sequence>
-
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/gems"
+        xmlns:tns="http://www.example.com/gems"
+        elementFormDefault="qualified">
+    <element name="gems">
+        <complexType>
+            <sequence>
+                <element name="common-gem" type="tns:common" maxOccurs="unbounded"/>
+                <element name="diamond-gem" type="tns:diamond" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="common">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="origin" type="string"/>
+            <element name="date" type="dateTime"/>
+            <element name="color">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="red"/>
+                        <enumeration value="green"/>
+                        <enumeration value="yellow"/>
+                        <enumeration value="blue"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="weightGrm">
+                <simpleType>
+                    <restriction base="double">
+                        <minInclusive value="0"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+        <attribute name="id" use="required"/>
+        <attribute name="lang" use="required" fixed="EN"/>
+    </complexType>
+    <complexType name="diamond">
+        <complexContent>
+            <extension base="tns:common">
+                <sequence>
+                    <element name="preciousness">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="preciousness"/>
+                                <enumeration value="semiprecious"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="carats" minOccurs="0">
+                        <simpleType>
+                            <restriction base="double">
+                                <minInclusive value="0"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="transparency">
+                        <simpleType>
+                            <restriction base="integer">
+                                <maxInclusive value="100"/>
+                                <minInclusive value="0"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="gemsSchema.xsd">
+<gems xmlns="http://www.example.com/gems">
     <common-gem id="" lang="EN">
         <name>dfd</name>
         <origin>r</origin>
