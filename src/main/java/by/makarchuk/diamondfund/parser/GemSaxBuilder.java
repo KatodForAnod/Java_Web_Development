@@ -1,0 +1,45 @@
+package by.makarchuk.diamondfund.parser;
+
+import by.makarchuk.diamondfund.entity.DiamondStone;
+import by.makarchuk.diamondfund.entity.Stone;
+import by.makarchuk.diamondfund.handler.GemErrorHandler;
+import by.makarchuk.diamondfund.handler.GemHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.IOException;
+import java.util.Set;
+
+public class GemSaxBuilder {
+    private GemHandler handler = new GemHandler();
+    private XMLReader reader;
+    private Set<DiamondStone> gems;
+
+    public GemSaxBuilder() {
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        try {
+            SAXParser saxParser = factory.newSAXParser();
+            reader = saxParser.getXMLReader();
+        } catch (ParserConfigurationException | SAXException e) {
+            e.printStackTrace(); // log
+        }
+        reader.setErrorHandler(new GemErrorHandler());
+        reader.setContentHandler(handler);
+    }
+
+    public Set<DiamondStone> getStones() {
+        return gems;
+    }
+
+    public void buildSetGems(String filename) {
+        try {
+            reader.parse(filename);
+        } catch (SAXException | IOException e) {
+            e.printStackTrace(); // log
+        }
+        gems = handler.getStones();
+    }
+}
