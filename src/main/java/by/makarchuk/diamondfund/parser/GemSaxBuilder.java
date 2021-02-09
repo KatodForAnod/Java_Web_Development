@@ -4,6 +4,7 @@ import by.makarchuk.diamondfund.entity.DiamondStone;
 import by.makarchuk.diamondfund.entity.Stone;
 import by.makarchuk.diamondfund.handler.GemErrorHandler;
 import by.makarchuk.diamondfund.handler.GemHandler;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.util.Set;
 
 public class GemSaxBuilder {
+    private static final Logger logger = Logger.getLogger(GemSaxBuilder.class);
     private GemHandler handler = new GemHandler();
     private XMLReader reader;
     private Set<DiamondStone> gems;
@@ -24,6 +26,7 @@ public class GemSaxBuilder {
             SAXParser saxParser = factory.newSAXParser();
             reader = saxParser.getXMLReader();
         } catch (ParserConfigurationException | SAXException e) {
+            logger.error("GemSaxBuilder(): ", e);
             e.printStackTrace(); // log
         }
         reader.setErrorHandler(new GemErrorHandler());
@@ -38,6 +41,7 @@ public class GemSaxBuilder {
         try {
             reader.parse(filename);
         } catch (SAXException | IOException e) {
+            logger.error("buildSetGems: ", e);
             e.printStackTrace(); // log
         }
         gems = handler.getStones();

@@ -35,8 +35,10 @@ public class XmlIsValid {
             validator.validate(source);
             isValid = true;
         } catch (IOException e) {
+            logger.error("isValid: " + xmlPath + " is not correct path ", e);
             System.err.println(xmlPath + " is not correct path");
         } catch (SAXException e) {
+            logger.error("isValid: " + xmlPath + " is not valid ", e);
             System.err.println(xmlPath + " is not valid");
         }
 

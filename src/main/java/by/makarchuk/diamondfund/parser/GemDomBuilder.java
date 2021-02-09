@@ -3,6 +3,7 @@ package by.makarchuk.diamondfund.parser;
 import by.makarchuk.diamondfund.entity.Color;
 import by.makarchuk.diamondfund.entity.DiamondStone;
 import by.makarchuk.diamondfund.entity.Preciousness;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -22,14 +23,15 @@ public class GemDomBuilder {
     private Set<DiamondStone> gems;
     private DocumentBuilder docBuilder;
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+    private static final Logger logger = Logger.getLogger(GemDomBuilder.class);
 
     public GemDomBuilder() {
         gems = new HashSet<DiamondStone>();
-
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
+            logger.error("GemDomBuilder(): ", e);
             e.printStackTrace(); // log
         }
     }
@@ -50,6 +52,7 @@ public class GemDomBuilder {
                 gems.add(diamondStone);
             }
         } catch (IOException | SAXException e) {
+            logger.error("buildSetGems: ", e);
             e.printStackTrace(); // log
         }
     }
@@ -74,14 +77,15 @@ public class GemDomBuilder {
 
         //tag carats has minOccurs="0"
         String caratsStr = getElementTextContent(gemElement, "carats");
-        if (!caratsStr.equals("")) {
+        if (caratsStr.equals("null")) {
+            logger.warn("tag <carats> not found");
+        } else {
             Double carats = Double.parseDouble(caratsStr);
             diamondStone.setWeightGrm(carats);
         }
 
         Double transparency = Double.parseDouble(getElementTextContent(gemElement, "transparency"));
         diamondStone.setTransparency(transparency);
-
         return diamondStone;
     }
 
@@ -89,7 +93,7 @@ public class GemDomBuilder {
         NodeList nList = element.getElementsByTagName(elementName);
         Node node = nList.item(0);
         if (node == null) {
-            return "";
+            return "null";
         }
         String text = node.getTextContent();
         return text;
