@@ -80,7 +80,7 @@ public class GemsDomBuilder extends AbstractGemsBuilder {
             logger.warn("tag <carats> not found");
         } else {
             Double carats = Double.parseDouble(caratsStr);
-            diamondStone.setWeightGrm(carats);
+            diamondStone.setCarats(carats);
         }
 
         Double transparency = Double.parseDouble(getElementTextContent(gemElement, "transparency"));
