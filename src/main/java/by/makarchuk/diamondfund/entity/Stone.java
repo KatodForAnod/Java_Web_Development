@@ -1,6 +1,7 @@
 package by.makarchuk.diamondfund.entity;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 
 public abstract class Stone {
@@ -53,5 +54,22 @@ public abstract class Stone {
                 .append("}");
 
         return infAboutStone.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stone stone = (Stone) o;
+        return Objects.equals(dateDiscovery, stone.dateDiscovery) &&
+                Objects.equals(name, stone.name) &&
+                Objects.equals(weightGrm, stone.weightGrm) &&
+                Objects.equals(origin, stone.origin) &&
+                color == stone.color;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dateDiscovery, name, weightGrm, origin, color);
     }
 }

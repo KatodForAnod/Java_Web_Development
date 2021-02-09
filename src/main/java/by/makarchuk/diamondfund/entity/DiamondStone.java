@@ -3,6 +3,7 @@ package by.makarchuk.diamondfund.entity;
 import org.apache.log4j.Logger;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class DiamondStone extends Stone {
     private static final Logger logger = Logger.getLogger(DiamondStone.class);
@@ -56,5 +57,21 @@ public class DiamondStone extends Stone {
                 .append("}");
 
         return infAboutStone.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DiamondStone)) return false;
+        if (!super.equals(o)) return false;
+        DiamondStone that = (DiamondStone) o;
+        return Objects.equals(carats, that.carats) &&
+                Objects.equals(transparency, that.transparency) &&
+                preciousness == that.preciousness;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), carats, transparency, preciousness);
     }
 }
