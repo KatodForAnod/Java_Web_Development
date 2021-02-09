@@ -19,13 +19,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
-public class GemDomBuilder {
+public class GemsDomBuilder {
     private Set<DiamondStone> gems;
     private DocumentBuilder docBuilder;
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-    private static final Logger logger = Logger.getLogger(GemDomBuilder.class);
+    private static final Logger logger = Logger.getLogger(GemsDomBuilder.class);
 
-    public GemDomBuilder() {
+    public GemsDomBuilder() {
         gems = new HashSet<DiamondStone>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {

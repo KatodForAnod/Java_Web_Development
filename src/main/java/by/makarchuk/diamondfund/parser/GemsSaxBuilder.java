@@ -1,7 +1,6 @@
 package by.makarchuk.diamondfund.parser;
 
 import by.makarchuk.diamondfund.entity.DiamondStone;
-import by.makarchuk.diamondfund.entity.Stone;
 import by.makarchuk.diamondfund.handler.GemErrorHandler;
 import by.makarchuk.diamondfund.handler.GemHandler;
 import org.apache.log4j.Logger;
@@ -14,13 +13,13 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.Set;
 
-public class GemSaxBuilder {
-    private static final Logger logger = Logger.getLogger(GemSaxBuilder.class);
+public class GemsSaxBuilder {
+    private static final Logger logger = Logger.getLogger(GemsSaxBuilder.class);
     private GemHandler handler = new GemHandler();
     private XMLReader reader;
     private Set<DiamondStone> gems;
 
-    public GemSaxBuilder() {
+    public GemsSaxBuilder() {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = factory.newSAXParser();
