@@ -6,8 +6,7 @@
     <element name="gems">
         <complexType>
             <sequence>
-                <element name="common-gem" type="tns:common" maxOccurs="unbounded"/>
-                <element name="diamond-gem" type="tns:diamond" maxOccurs="unbounded"/>
+                <element name="diamond_gem" type="tns:diamond" maxOccurs="unbounded" minOccurs="0"/>
             </sequence>
         </complexType>
     </element>
@@ -44,7 +43,7 @@
                     <element name="preciousness">
                         <simpleType>
                             <restriction base="string">
-                                <enumeration value="preciousness"/>
+                                <enumeration value="precious"/>
                                 <enumeration value="semiprecious"/>
                             </restriction>
                         </simpleType>
