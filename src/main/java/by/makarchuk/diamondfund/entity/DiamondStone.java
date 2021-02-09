@@ -10,10 +10,13 @@ public class DiamondStone extends Stone {
     protected Double transparency;
     protected Preciousness preciousness;
 
+    public DiamondStone() {
+    }
+
     public DiamondStone(LocalDateTime dateDiscovery, String name, String origin, Color color,
                         Double carats, Double transparency, Preciousness preciousness) {
         super(dateDiscovery, name, carats / 5, origin, color);
-        
+
         this.carats = carats;
         this.transparency = transparency;
         this.preciousness = preciousness;

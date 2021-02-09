@@ -10,6 +10,9 @@ public abstract class Stone {
     protected String origin;
     protected Color color;
 
+    public Stone() {
+    }
+
     public Stone(LocalDateTime dateDiscovery, String name, Double weightGrm, String origin, Color color) {
         this.dateDiscovery = dateDiscovery;
         this.name = name;
