@@ -44,22 +44,15 @@ public class DiamondStone extends Stone {
 
     @Override
     public String toString() {
-        StringBuilder infAboutStone = new StringBuilder("stone {");
+        StringBuilder infAboutStone = new StringBuilder("\nstone {");
         infAboutStone
-                .append("name: ")
-                .append(name)
-                .append(", discovery: ")
-                .append(dateDiscovery)
-                .append(", carats: ")
-                .append(carats)
-                .append(", origin: ")
-                .append(origin)
-                .append(", color: ")
-                .append(color)
-                .append(", transparency: ")
-                .append(transparency)
-                .append(", preciousness: ")
-                .append(preciousness)
+                .append("name: ").append(name)
+                .append(", discovery: ").append(dateDiscovery)
+                .append(", carats: ").append(carats)
+                .append(", origin: ").append(origin)
+                .append(", color: ").append(color)
+                .append(", transparency: ").append(transparency)
+                .append(", preciousness: ").append(preciousness)
                 .append("}");
 
         return infAboutStone.toString();

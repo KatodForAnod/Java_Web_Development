@@ -45,16 +45,11 @@ public abstract class Stone {
     public String toString() {
         StringBuilder infAboutStone = new StringBuilder("stone {");
         infAboutStone
-                .append("name: ")
-                .append(name)
-                .append(", discovery: ")
-                .append(dateDiscovery)
-                .append(", origin: ")
-                .append(origin)
-                .append(", weightGrm: ")
-                .append(weightGrm)
-                .append(", color: ")
-                .append(color)
+                .append("name: ").append(name)
+                .append(", discovery: ").append(dateDiscovery)
+                .append(", origin: ").append(origin)
+                .append(", weightGrm: ").append(weightGrm)
+                .append(", color: ").append(color)
                 .append("}");
 
         return infAboutStone.toString();
