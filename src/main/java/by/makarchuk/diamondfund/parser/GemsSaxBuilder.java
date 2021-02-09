@@ -13,11 +13,10 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.Set;
 
-public class GemsSaxBuilder {
+public class GemsSaxBuilder extends AbstractGemsBuilder {
     private static final Logger logger = Logger.getLogger(GemsSaxBuilder.class);
     private GemHandler handler = new GemHandler();
     private XMLReader reader;
-    private Set<DiamondStone> gems;
 
     public GemsSaxBuilder() {
         SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -32,8 +31,8 @@ public class GemsSaxBuilder {
         reader.setContentHandler(handler);
     }
 
-    public Set<DiamondStone> getStones() {
-        return gems;
+    public GemsSaxBuilder(Set<DiamondStone> gems) {
+        super(gems);
     }
 
     public void buildSetGems(String filename) {

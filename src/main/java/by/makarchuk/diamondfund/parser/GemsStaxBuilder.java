@@ -18,19 +18,18 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
-public class GemsStaxBuilder {
+public class GemsStaxBuilder extends AbstractGemsBuilder {
     private static final Logger logger = Logger.getLogger(GemsStaxBuilder.class);
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-    private Set<DiamondStone> gems;
     private XMLInputFactory inputFactory;
 
     public GemsStaxBuilder() {
+        super();
         inputFactory = XMLInputFactory.newInstance();
-        gems = new HashSet<DiamondStone>();
     }
 
-    public Set<DiamondStone> getGems() {
-        return gems;
+    public GemsStaxBuilder(Set<DiamondStone> gems) {
+        super(gems);
     }
 
     public void buildSetGems(String filename) {
