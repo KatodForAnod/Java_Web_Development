@@ -12,6 +12,9 @@ public final class Point {
     }
 
     public Point() {
+        x = 0.0;
+        y = 0.0;
+        z = 0.0;
     }
 
     public double getX() {
