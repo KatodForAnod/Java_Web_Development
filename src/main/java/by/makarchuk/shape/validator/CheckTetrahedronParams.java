@@ -1,11 +1,10 @@
 package by.makarchuk.shape.validator;
 
 import by.makarchuk.shape.entity.Point;
-import by.makarchuk.shape.entity.Tetrahedron;
 import by.makarchuk.shape.entity.Triangle;
 
 public class CheckTetrahedronParams {
-    public static boolean allTrianglesIsValid(
+    private static boolean allTrianglesIsValid(
             Triangle triangleABC, Triangle triangleCDB,
             Triangle triangleBDA, Triangle triangleACD) {
 
