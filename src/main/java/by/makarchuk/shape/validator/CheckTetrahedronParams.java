@@ -1,29 +1,14 @@
 package by.makarchuk.shape.validator;
 
 import by.makarchuk.shape.entity.Point;
-import by.makarchuk.shape.entity.Triangle;
 
 public class CheckTetrahedronParams {
-    private static boolean allTrianglesIsValid(
-            Triangle triangleABC, Triangle triangleCDB,
-            Triangle triangleBDA, Triangle triangleACD) {
-
-        boolean trianglesIsValid = (CheckTriangleParams.isValid1dCheck(triangleABC) &&
-                CheckTriangleParams.isValid1dCheck(triangleCDB) &&
-                CheckTriangleParams.isValid1dCheck(triangleBDA) &&
-                CheckTriangleParams.isValid1dCheck(triangleACD));
-
-        return trianglesIsValid;
-    }
-
     public static boolean tetrahedronIsValid(Point a, Point b, Point c, Point d) {
         boolean isValid = false;
-        Triangle triangleABC = new Triangle(a, b, c);
-        Triangle triangleCDB = new Triangle(c, d, b);
-        Triangle triangleBDA = new Triangle(b, d, a);
-        Triangle triangleACD = new Triangle(a, c, d);
-
-        if (allTrianglesIsValid(triangleABC, triangleCDB, triangleBDA, triangleACD)) {
+        if (CheckTriangleParams.isValid1dCheck(a, b, c) &&
+                CheckTriangleParams.isValid1dCheck(c, d, b) &&
+                CheckTriangleParams.isValid1dCheck(b, d, a) &&
+                CheckTriangleParams.isValid1dCheck(a, c, d)) {
             isValid = true;
         }
 
