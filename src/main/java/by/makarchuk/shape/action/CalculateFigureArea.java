@@ -30,4 +30,12 @@ public class CalculateFigureArea {
         return area;
     }
 
+    public static double calculateTetrahedronArea(Point a, Point b, Point c, Point d) throws WrongInputParam {
+        double area = calculateTriangleArea(a, b, c) +
+                calculateTriangleArea(c, d, b) +
+                calculateTriangleArea(b, d, a) +
+                calculateTriangleArea(a, c, d);
+
+        return area;
+    }
 }
