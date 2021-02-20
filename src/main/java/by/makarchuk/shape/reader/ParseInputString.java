@@ -1,10 +1,10 @@
-package by.makarchuk.shape.validator;
+package by.makarchuk.shape.reader;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ParseInputString {
-    private static final String patternString = "(\\d+\\.\\d)\\s(\\d+\\.\\d)\\s(\\d+\\.\\d){1}";
+    private static final String patternString = "(\\d+\\.\\d)\\s(\\d+\\.\\d)\\s(\\d+\\.\\d)";
 
     public static boolean onlyDoubleCheck(String inputData) {
         Pattern pattern = Pattern.compile(patternString);

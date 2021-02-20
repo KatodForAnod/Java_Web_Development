@@ -1,4 +1,4 @@
-package by.makarchuk.shape.validator;
+package by.makarchuk.shape.reader;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
