@@ -3,8 +3,11 @@ package by.makarchuk.shape.action;
 import by.makarchuk.shape.entity.Point;
 import by.makarchuk.shape.exception.WrongInputParam;
 import by.makarchuk.shape.validator.CheckTriangleParams;
+import org.apache.log4j.Logger;
 
 public class CalculateFigureArea {
+    private static final Logger logger = Logger.getLogger(CalculateFigureArea.class);
+
     private static double calculateTriangleArea(double sideAB, double sideBC, double sideCA) {
         double p = (sideAB + sideBC + sideCA) / 2.0;
         double area = Math.sqrt(p * (p - sideAB) * (p - sideBC) * (p - sideCA));
@@ -14,6 +17,7 @@ public class CalculateFigureArea {
 
     public static double calculateTriangleArea(Point a, Point b, Point c) throws WrongInputParam {
         if (!CheckTriangleParams.isValid1dCheck(a, b, c)) {
+            logger.error("calculateTriangleArea inputData error: " + a.toString() + b.toString() + c.toString());
             throw new WrongInputParam("wrong input params");
         }
         double sideAB = Math.sqrt(Math.pow(b.getX() - a.getX(), 2) +

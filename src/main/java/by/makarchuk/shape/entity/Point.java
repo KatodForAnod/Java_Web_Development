@@ -1,13 +1,18 @@
 package by.makarchuk.shape.entity;
 
+import by.makarchuk.shape.action.CalculateFigureArea;
+import org.apache.log4j.Logger;
+
 import java.util.Objects;
 
 public final class Point {
+    private static final Logger logger = Logger.getLogger(Point.class);
     private final double x;
     private final double y;
     private final double z;
 
     public Point(double x, double y, double z) {
+        logger.info("create point dataInput: " + x + " " + y + " " + z);
         this.x = x;
         this.y = y;
         this.z = z;
@@ -38,5 +43,14 @@ public final class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y, z);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
     }
 }
