@@ -55,4 +55,12 @@ public class TestComposite {
         textComposite.addComponent(textComposite6);
         System.out.println(textComposite.toString());
     }
+
+    @Test
+    public void test_2(){
+        String str = "hey.us ofc.";
+        for(String i:str.split("(?<=((\\.)|(!)))(\\s)")){
+            System.out.println(i);
+        }
+    }
 }
