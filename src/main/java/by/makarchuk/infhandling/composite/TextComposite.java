@@ -4,17 +4,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class TextComposite implements TextComponent {
+    private static final String tab = "    ";
     private TypeComponent typeComponent;
-    private List<TypeComponent> components = new LinkedList<>();
+    private List<TextComponent> components = new LinkedList<>();
 
     @Override
     public int countComponents() {
         return components.size();
     }
 
+    public TextComposite(TypeComponent typeComponent) {
+        this.typeComponent = typeComponent;
+    }
+
     @Override
     public void addComponent(TextComponent componentText) {
-
+        components.add(componentText);
     }
 
     @Override
@@ -25,28 +30,28 @@ public class TextComposite implements TextComponent {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        String specSymbol = "";
+
         switch (typeComponent) {
             case TEXT: {
-                for (TypeComponent block : components) {
-                    stringBuilder.append(block.toString()).append("\n");
-                }
+                specSymbol = "\n";
                 break;
             }
             case PARAGRAPH: {
-                stringBuilder.append("    ");
+                stringBuilder.append(tab);
+                break;
             }
             case SENTENCE: {
-                for (TypeComponent block : components) {
-                    stringBuilder.append(block.toString()).append(" ");
-                }
+                specSymbol = " ";
                 break;
             }
             default: {
-                for (TypeComponent block : components) {
-                    stringBuilder.append(block.toString());
-                }
+                specSymbol = "";
                 break;
             }
+        }
+        for (TextComponent block : components) {
+            stringBuilder.append(block.toString()).append(specSymbol);
         }
 
         return stringBuilder.toString();

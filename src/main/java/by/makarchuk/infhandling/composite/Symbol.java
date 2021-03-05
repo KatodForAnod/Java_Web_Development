@@ -10,6 +10,11 @@ public class Symbol implements TextComponent{
         return LENGTH_SYMBOL;
     }
 
+    public Symbol(char value, TypeComponent typeComponent) {
+        this.value = value;
+        this.typeComponent = typeComponent;
+    }
+
     @Override
     public void addComponent(TextComponent componentText) {
 
