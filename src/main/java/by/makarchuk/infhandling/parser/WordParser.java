@@ -9,6 +9,9 @@ public class WordParser extends AbstractTextParser{
     public TextComposite parse(String text) {
         TextComposite wordComposite = new TextComposite(TypeComponent.WORD);
         for(char symbolValue : text.toCharArray()) {
+            if(symbolValue == ' '){
+                continue;
+            }
             Symbol symbol = new Symbol(symbolValue,TypeComponent.SYMBOL);
             wordComposite.addComponent(symbol);
         }

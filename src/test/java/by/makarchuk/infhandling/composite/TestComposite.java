@@ -58,8 +58,8 @@ public class TestComposite {
 
     @Test
     public void test_2(){
-        String str = "hey.us ofc.";
-        for(String i:str.split("(?<=((\\.)|(!)))(\\s)")){
+        String str = "      hey us ofc.";
+        for(String i:str.split("(?<=[a-zA-Z])(\\s)")){
             System.out.println(i);
         }
     }

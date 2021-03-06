@@ -4,7 +4,7 @@ import by.makarchuk.infhandling.composite.TextComposite;
 import by.makarchuk.infhandling.composite.TypeComponent;
 
 public class SentenceParse extends AbstractTextParser {
-    private static final String WORD_SPLIT = " ";
+    private static final String WORD_SPLIT = "(?<=([^\\s])(\\s))";
     private AbstractTextParser wordParser = new WordParser();
 
     @Override
