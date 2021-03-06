@@ -1,7 +1,11 @@
 package by.makarchuk.infhandling.composite;
 
+import by.makarchuk.infhandling.specification.Specification;
+
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TextComposite implements TextComponent {
     private static final String tab = "    ";
@@ -11,6 +15,16 @@ public class TextComposite implements TextComponent {
     @Override
     public int countComponents() {
         return components.size();
+    }
+
+    @Override
+    public void query() {
+
+    }
+
+    @Override
+    public List<TextComponent> getComponents() {
+        return components;
     }
 
     public TextComposite(TypeComponent typeComponent) {
@@ -25,6 +39,16 @@ public class TextComposite implements TextComponent {
     @Override
     public void deleteComponent(TextComponent componentText) {
 
+    }
+
+    public void query(Comparator<TextComponent> comparator) {
+        List<TextComponent> list = components.stream().sorted(comparator).collect(Collectors.toList());
+        components = list;
+    }
+
+    public void query(Specification specification) {
+        List<TextComponent> list = components.stream().filter(o -> specification.specify(o)).collect(Collectors.toList());
+        components = list;
     }
 
     @Override

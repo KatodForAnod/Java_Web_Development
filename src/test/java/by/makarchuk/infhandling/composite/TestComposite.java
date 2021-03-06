@@ -1,5 +1,7 @@
 package by.makarchuk.infhandling.composite;
 
+import by.makarchuk.infhandling.specification.MinWordCount;
+import by.makarchuk.infhandling.specification.Specification;
 import org.testng.annotations.Test;
 
 public class TestComposite {
@@ -46,10 +48,10 @@ public class TestComposite {
         textComposite4.addComponent(textComposite2);
         TextComposite textComposite5 = new TextComposite(TypeComponent.SENTENCE);
         textComposite5.addComponent(textComposite3);
+
         TextComposite textComposite6 = new TextComposite(TypeComponent.PARAGRAPH);
         textComposite6.addComponent(textComposite4);
         textComposite6.addComponent(textComposite5);
-
 
 
         textComposite.addComponent(textComposite6);

@@ -1,5 +1,6 @@
 package by.makarchuk.infhandling.parser;
 
+import by.makarchuk.infhandling.comparator.SortCountParagraphs;
 import by.makarchuk.infhandling.composite.TextComposite;
 import org.testng.annotations.Test;
 
@@ -19,6 +20,7 @@ public class TestParser {
 
         TextParser textParser = new TextParser();
         TextComposite textComposite = textParser.parse(str);
+
         System.out.println(textComposite.toString());
 
     }
