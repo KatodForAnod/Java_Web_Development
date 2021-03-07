@@ -1,6 +1,7 @@
 package by.makarchuk.infhandling.composite;
 
 import by.makarchuk.infhandling.specification.Specification;
+import org.apache.log4j.Logger;
 
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TextComposite implements TextComponent {
+    private static final Logger logger = Logger.getLogger(TextComposite.class);
     private static final String tab = "    ";
     private TypeComponent typeComponent;
     private List<TextComponent> components = new LinkedList<>();
@@ -28,6 +30,7 @@ public class TextComposite implements TextComponent {
     }
 
     public TextComposite(TypeComponent typeComponent) {
+        logger.info("create " + typeComponent);
         this.typeComponent = typeComponent;
     }
 
