@@ -2,6 +2,8 @@ package by.makarchuk.multithread.entity;
 
 import by.makarchuk.multithread.exception.WrongInputParam;
 
+import java.util.concurrent.TimeUnit;
+
 public class Ship implements Runnable {
     private int id;
     private final int maxCapacity;
@@ -46,28 +48,26 @@ public class Ship implements Runnable {
         return currentCapacity;
     }
 
-    public int loadCargo(int cargo) {
-        System.out.println("В корабль " + this.id + " загружается: " + cargo + " грузов");
+    public int loadCargo(int cargo) throws InterruptedException {
+        System.out.println("В корабль " + this.id + " загружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
         if (currentCapacity + cargo > maxCapacity) {
             int cargoLoad = maxCapacity - currentCapacity;
             currentCapacity = maxCapacity;
-            System.out.println("В корабль " + this.id + "  загруженно: " + cargoLoad + " грузов");
+
             return cargoLoad;
         }
-        System.out.println("В корабль  " + this.id + "  загруженно: " + cargo + " грузов");
         currentCapacity += cargo;
         return cargo;
     }
 
-    public int unloadCargo(int cargo) {
-        System.out.println("Из корабля " + this.id + " выгружается: " + cargo + " грузов");
+    public int unloadCargo(int cargo) throws InterruptedException {
+        System.out.println("Из корабля " + this.id + " выгружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
         if (cargo > currentCapacity) {
             cargo = currentCapacity;
             currentCapacity = 0;
-            System.out.println("Из корабля " + this.id + " выгруженно: " + cargo + " грузов");
             return cargo;
         }
-        System.out.println("Из корабля  " + this.id + " выгруженно: " + cargo + " грузов");
+
         currentCapacity -= cargo;
         return cargo;
     }

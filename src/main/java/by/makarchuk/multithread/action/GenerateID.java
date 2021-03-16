@@ -5,11 +5,11 @@ public class GenerateID {
     private static int BERTH_ID = 0;
 
     public static int getUniqShipID(){
-        return SHIP_ID++;
+        return ++SHIP_ID;
     }
 
     public static int getUniqBerthID(){
-        return BERTH_ID++;
+        return ++BERTH_ID;
     }
 
 }
