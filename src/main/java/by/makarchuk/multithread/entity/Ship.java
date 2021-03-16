@@ -48,8 +48,8 @@ public class Ship implements Runnable {
         return currentCapacity;
     }
 
-    public int loadCargo(int cargo) throws InterruptedException {
-        System.out.println("В корабль " + this.id + " загружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
+    public int loadCargo(int cargo){
+        System.out.println("В корабль " + id + " загружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
         if (currentCapacity + cargo > maxCapacity) {
             int cargoLoad = maxCapacity - currentCapacity;
             currentCapacity = maxCapacity;
@@ -60,8 +60,8 @@ public class Ship implements Runnable {
         return cargo;
     }
 
-    public int unloadCargo(int cargo) throws InterruptedException {
-        System.out.println("Из корабля " + this.id + " выгружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
+    public int unloadCargo(int cargo){
+        System.out.println("Из корабля " + id + " выгружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
         if (cargo > currentCapacity) {
             cargo = currentCapacity;
             currentCapacity = 0;

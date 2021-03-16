@@ -10,7 +10,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Port {
-    private static final int BERTH_CAPACITY = 7;
+    private static final int BERTH_CAPACITY = 2;
     private static Port instance = new Port();
     private Queue<Berth> freeBerths = new LinkedList<>();
     private Queue<Berth> busyBirths = new LinkedList<>();
@@ -40,10 +40,12 @@ public class Port {
         lock.lock();
         try {
             while (freeBerths.isEmpty()) {
+                System.out.println("Ожидание свободного причала");
                 berthIsFree.await();
             }
             Berth berth = freeBerths.poll();
             busyBirths.offer(berth);
+            System.out.println("Причал "+ berth.getId() + " свободен");
             return berth;
         } catch (InterruptedException e) {
             e.printStackTrace();
