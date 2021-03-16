@@ -1,4 +1,4 @@
-package by.makarchuk.infhandling.exception;
+package by.makarchuk.multithread.exception;
 
 public class WrongInputParam extends Exception{
     public WrongInputParam() {

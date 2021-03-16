@@ -1,6 +1,6 @@
-package by.makarchuk.infhandling.reader;
+package by.makarchuk.multithread.reader;
 
-import by.makarchuk.infhandling.exception.WrongInputParam;
+import by.makarchuk.multithread.exception.WrongInputParam;
 import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Files;
