@@ -1,10 +1,11 @@
 package by.makarchuk.multithread.entity;
 
 import by.makarchuk.multithread.exception.WrongInputParam;
+import org.apache.log4j.Logger;
 
-import java.util.concurrent.TimeUnit;
 
 public class Ship implements Runnable {
+    private static final Logger logger = Logger.getLogger(Ship.class);
     private int id;
     private final int maxCapacity;
     private int currentCapacity;
@@ -13,6 +14,10 @@ public class Ship implements Runnable {
         this.id = id;
         this.maxCapacity = maxCapacity;
         this.currentCapacity = currentCapacity;
+        if(currentCapacity > maxCapacity){
+            logger.info("wrong input data - maxCapacity: " + maxCapacity + " currentCapacity " + currentCapacity);
+            this.currentCapacity = maxCapacity;
+        }
     }
 
     public void run() {
@@ -31,8 +36,9 @@ public class Ship implements Runnable {
                 }
             }
             port.freeBerth(berth);
-        } catch (WrongInputParam | InterruptedException wrongInputParam) {
-            wrongInputParam.printStackTrace();
+        } catch (WrongInputParam e) {
+            logger.error("Method run",e);
+            e.printStackTrace();
         }
     }
 
@@ -49,7 +55,8 @@ public class Ship implements Runnable {
     }
 
     public int loadCargo(int cargo){
-        System.out.println("В корабль " + id + " загружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
+        System.out.println("В корабль " + id + " загружается: " + cargo
+                + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
         if (currentCapacity + cargo > maxCapacity) {
             int cargoLoad = maxCapacity - currentCapacity;
             currentCapacity = maxCapacity;
@@ -61,7 +68,8 @@ public class Ship implements Runnable {
     }
 
     public int unloadCargo(int cargo){
-        System.out.println("Из корабля " + id + " выгружается: " + cargo + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
+        System.out.println("Из корабля " + id + " выгружается: " + cargo
+                + " грузов, текущее кол-во грузов "+ getCurrentCapacity());
         if (cargo > currentCapacity) {
             cargo = currentCapacity;
             currentCapacity = 0;

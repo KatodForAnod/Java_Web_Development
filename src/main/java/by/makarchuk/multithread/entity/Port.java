@@ -2,6 +2,7 @@ package by.makarchuk.multithread.entity;
 
 import by.makarchuk.multithread.action.GenerateID;
 import by.makarchuk.multithread.exception.WrongInputParam;
+import org.apache.log4j.Logger;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -10,6 +11,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Port {
+    private static final Logger logger = Logger.getLogger(Port.class);
     private static final int BERTH_CAPACITY = 2;
     private static Port instance = new Port();
     private Queue<Berth> freeBerths = new LinkedList<>();
@@ -48,6 +50,7 @@ public class Port {
             System.out.println("Причал "+ berth.getId() + " свободен");
             return berth;
         } catch (InterruptedException e) {
+            logger.error("getFreeBerth", e);
             e.printStackTrace();
         } finally {
             lock.unlock();
